@@ -1,8 +1,8 @@
 var Result = { "win": 1, "loss": 2, "tie": 3 };
 
 var PokerHand = function(cards) {
-	this.cards = parseCards(cards);
-	this.score = evaluateScore(this.cards);
+	this.cards = this.parseCards(cards);
+	this.score = this.evaluateScore(this.cards);
 };
 
 PokerHand.prototype.parseCards = function(cardsStr) {
@@ -10,14 +10,15 @@ PokerHand.prototype.parseCards = function(cardsStr) {
     cardsStr.split(" ").forEach(function (cardStr) {
         cards.push({
             denomination: cardStr[0],
-            suite: cardStr[1]
+            suite: cardStr[1],
+			value: 0
         });
     });
     return cards;
 };
 
 PokerHand.prototype.evaluateScore = function(cards) {
-
+	return 0;
 };
 
 PokerHand.prototype.getHighestCard = function() {
