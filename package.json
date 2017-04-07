@@ -1,0 +1,26 @@
+{
+  "name": "frontend-test",
+  "version": "1.0.0",
+  "description": "At Grabyo we love board games and will have an occasional poker night. Since no one remembers the card ranking you will have to write a program that compare poker hands and determines a winner.",
+  "main": "main.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dine-j/poker-hand.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dine-j/poker-hand/issues"
+  },
+  "homepage": "https://github.com/dine-j/poker-hand#readme"
+}
