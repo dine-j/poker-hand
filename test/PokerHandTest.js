@@ -1,7 +1,11 @@
 var assert = require('assert');
-var PokerHand = require('../src/main');
+var main = require('../src/main');
+var PokerHand = main.PokerHand;
+var isRoyalFlush = main.isRoyalFlush;
+var isSequence = main.isSequence;
+var getDecreasingNumberOfDenominations = main.getDecreasingNumberOfDenominations;
 
-describe('PokerHand', function () {
+describe('PokerHand object', function () {
     describe('parseCards', function() {
         it('Should parse given example to card objects', function() {
             var cardsStr = "KS 2H 5C JD TD";
@@ -385,8 +389,119 @@ describe('PokerHand', function () {
             var hand2 = new PokerHand("KS 2H 5C JD TD");
 
             var result = hand1.compareWith(hand2);
-
             assert.equal(result, 3);
+        });
+
+        it('A Royal Flush vs example should win', function() {
+            var hand1 = new PokerHand("TC JC QC KC AC");
+            var hand2 = new PokerHand("KS 2H 5C JD TD");
+
+            var result = hand1.compareWith(hand2);
+            assert.equal(result, 1);
+        });
+    });
+});
+
+describe('Main global functions', function() {
+    describe('isRoyalFlush', function() {
+        it('Should return true if hand is a Royal Flush', function() {
+            var cards = [
+                {
+                    denomination: "T",
+                    suit: "C",
+                    value: 10
+                },
+                {
+                    denomination: "J",
+                    suit: "C",
+                    value: 11
+                },
+                {
+                    denomination: "Q",
+                    suit: "C",
+                    value: 12
+                },
+                {
+                    denomination: "K",
+                    suit: "C",
+                    value: 13
+                },
+                {
+                    denomination: "A",
+                    suit: "C",
+                    value: 14
+                }
+            ];
+            var result = isRoyalFlush(cards);
+            assert.ok(result);
+        });
+    });
+
+    describe('isSequence', function() {
+        it('Should return true if hand has a sequence', function() {
+            var cards = [
+                {
+                    denomination: "3",
+                    suit: "H",
+                    value: 3
+                },
+                {
+                    denomination: "4",
+                    suit: "C",
+                    value: 4
+                },
+                {
+                    denomination: "5",
+                    suit: "D",
+                    value: 5
+                },
+                {
+                    denomination: "6",
+                    suit: "C",
+                    value: 6
+                },
+                {
+                    denomination: "7",
+                    suit: "S",
+                    value: 7
+                }
+            ];
+            var result = isSequence(cards);
+            assert.ok(result);
+        });
+    });
+
+    describe('getDecreasingNumberOfDenominations', function() {
+        it('Should return the number of cards of the same denomination in decreasing order', function() {
+            var cards = [
+                {
+                    denomination: "T",
+                    suit: "C",
+                    value: 10
+                },
+                {
+                    denomination: "T",
+                    suit: "S",
+                    value: 10
+                },
+                {
+                    denomination: "T",
+                    suit: "H",
+                    value: 10
+                },
+                {
+                    denomination: "T",
+                    suit: "D",
+                    value: 10
+                },
+                {
+                    denomination: "4",
+                    suit: "D",
+                    value: 4
+                }
+            ];
+            var result = getDecreasingNumberOfDenominations(cards);
+            assert.deepEqual(result, [4,1]);
         });
     });
 });
