@@ -34,7 +34,7 @@ describe('PokerHand', function () {
                 }
             ];
             var result = hand.parseCards(cardsStr);
-            assert.equal(result, cards);
+            assert.deepEqual(result, cards);
         });
     });
 

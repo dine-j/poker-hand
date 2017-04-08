@@ -7,11 +7,23 @@ var PokerHand = function(cards) {
 
 PokerHand.prototype.parseCards = function(cardsStr) {
     var cards = [];
+    var values = {
+    	T: 10,
+		J: 11,
+		Q: 12,
+		K: 13,
+		A: 14
+	};
+
+    for(var i = 0; i < 10; ++i) {
+    	values[String(i)] = i;
+	}
+
     cardsStr.split(" ").forEach(function (cardStr) {
         cards.push({
             denomination: cardStr[0],
-            suite: cardStr[1],
-			value: 0
+            suit: cardStr[1],
+			value: values[cardStr[0]]
         });
     });
     return cards;
