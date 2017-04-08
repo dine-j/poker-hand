@@ -371,10 +371,11 @@ describe('PokerHand', function () {
     });
 
     describe('getHighestCard', function() {
-        it(' ', function() {
-
-
-            assert.fail();
+        it('Should get the king value if king is highest card', function() {
+            var cardsStr = "KS 2H 5C JD TD";
+            var hand = new PokerHand(cardsStr);
+            var result = hand.getHighestCard();
+            assert.equal(result, 13);
         });
     });
 

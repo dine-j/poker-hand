@@ -34,7 +34,10 @@ PokerHand.prototype.evaluateScore = function(cards) {
 };
 
 PokerHand.prototype.getHighestCard = function() {
-	return null;
+	this.cards.sort(function(a, b) {
+		return b.value - a.value;
+	});
+	return this.cards[0].value;
 };
 
 PokerHand.prototype.compareWith = function(other) {
