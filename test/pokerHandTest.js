@@ -1,5 +1,5 @@
 var assert = require('assert');
-var main = require('../src/main');
+var main = require('../src/pokerHand');
 var PokerHand = main.PokerHand;
 var isRoyalFlush = main.isRoyalFlush;
 var isSequence = main.isSequence;
