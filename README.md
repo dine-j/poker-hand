@@ -36,6 +36,8 @@ The ranking of the hands should follow the [Texas Hold'em rules](http://freepoke
 * `npm`
 * `node`
 
+Dependencies for tests should be installed using `npm install`
+
 ### Main program
 
 The main program can be launched by using `npm start`.
