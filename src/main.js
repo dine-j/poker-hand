@@ -1,17 +1,35 @@
 var PokerHand = require('../src/pokerHand');
 var Result = require('../src/pokerHand').Result;
+const readline = require('readline');
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 
 console.log("This program compares 2 poker hands and determines a winner");
 
-console.log("Player 1 name: ");
-var player1 = readline();
-console.log("Please type in your cards: ");
-hand1 = new PokerHand(readline());
+var player1 = "";
+var player2= "";
+var hand1 = "";
+var hand2 = "";
 
-console.log("Player 2 name: ");
-var player2 = readline();
-console.log("Please type in your cards: ");
-hand1 = new PokerHand(readline());
+rl.question('Player 1 name: ', function(answer) {
+    player1 = answer;
+
+    rl.question('Please type in your cards: ', function (answer) {
+        hand1 = new PokerHand(answer);
+
+        rl.question('Player 2 name: ', function (answer) {
+            player2 = answer;
+
+            rl.question('Please type in your cards: ', function (answer) {
+                hand2 = new PokerHand(answer);
+
+                rl.close();
+            });
+        });
+    });
+});
 
 if(hand1.compareWith(hand2) === Result.win)
     console.log(player1 + " wins!");

@@ -96,14 +96,14 @@ PokerHand.prototype.compareWith = function(other) {
 
 function isRoyalFlush(cards) {
     cards.sort(function(a, b) {
-        return a.value - b.avlue;
+        return a.value - b.value;
     });
     return (cards[4].value - cards[0].value) === 4 && cards[0].value === 10;
 }
 
 function isSequence(cards) {
     cards.sort(function(a, b) {
-        return a.value - b.avlue;
+        return a.value - b.value;
     });
     return (cards[4].value - cards[0].value) === 4;
 }
