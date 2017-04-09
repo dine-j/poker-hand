@@ -435,6 +435,38 @@ describe('Main global functions', function() {
             var result = isRoyalFlush(cards);
             assert.ok(result);
         });
+
+        it('Should return false if hand is a Four of a Kind', function() {
+            var cards = [
+                {
+                    denomination: "T",
+                    suit: "C",
+                    value: 10
+                },
+                {
+                    denomination: "T",
+                    suit: "S",
+                    value: 10
+                },
+                {
+                    denomination: "T",
+                    suit: "H",
+                    value: 10
+                },
+                {
+                    denomination: "T",
+                    suit: "D",
+                    value: 10
+                },
+                {
+                    denomination: "4",
+                    suit: "D",
+                    value: 4
+                }
+            ];
+            var result = isRoyalFlush(cards);
+            assert.equal(result, false);
+        });
     });
 
     describe('isSequence', function() {
@@ -468,6 +500,38 @@ describe('Main global functions', function() {
             ];
             var result = isSequence(cards);
             assert.ok(result);
+        });
+
+        it('Should return false if hand does not have a sequence', function() {
+            var cards = [
+                {
+                    denomination: "T",
+                    suit: "C",
+                    value: 10
+                },
+                {
+                    denomination: "T",
+                    suit: "S",
+                    value: 10
+                },
+                {
+                    denomination: "T",
+                    suit: "H",
+                    value: 10
+                },
+                {
+                    denomination: "T",
+                    suit: "D",
+                    value: 10
+                },
+                {
+                    denomination: "4",
+                    suit: "D",
+                    value: 4
+                }
+            ];
+            var result = isSequence(cards);
+            assert.equal(result, false);
         });
     });
 
