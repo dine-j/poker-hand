@@ -29,7 +29,7 @@ The result of your poker hand compare can be one of these 3 options:
 
 The ranking of the hands should follow the [Texas Hold'em rules](http://freepokerhoney.com/website_images/8245/poker-strategy/poker-hand-rankings.png)
 
-## How to run
+## How to run
 
 ### Dependencies
 
